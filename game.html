@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Love 💗</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Tap Love 💗</h1>
+    <p class="subtitle">Klik hati sebanyak mungkin yaa!</p>
+
+    <div class="game-info">
+      <span>⏱️ <span id="time">15</span>s</span>
+      <span>💖 Skor: <span id="score">0</span></span>
+    </div>
+
+    <div class="game-area" id="gameArea"></div>
+
+    <button class="btn-love" onclick="startGame()">Mulai Game 🎮</button>
+    <a href="menu.html" class="btn-love" style="margin-top:10px;">⬅ Menu</a>
+  </div>
+
+<script>
+let score = 0;
+let time = 15;
+let timer;
+let interval;
+
+function startGame() {
+  score = 0;
+  time = 15;
+  document.getElementById("score").innerText = score;
+  document.getElementById("time").innerText = time;
+
+  const area = document.getElementById("gameArea");
+  area.innerHTML = "";
+
+  clearInterval(timer);
+  clearInterval(interval);
+
+  timer = setInterval(() => {
+    time--;
+    document.getElementById("time").innerText = time;
+
+    if (time <= 0) {
+      endGame();
+    }
+  }, 1000);
+
+  interval = setInterval(spawnLove, 700);
+}
+
+function spawnLove() {
+  const area = document.getElementById("gameArea");
+  const love = document.createElement("div");
+  love.className = "love";
+  love.innerText = "💗";
+
+  love.style.left = Math.random() * 80 + "%";
+  love.style.top = Math.random() * 80 + "%";
+
+  love.onclick = () => {
+    score++;
+    document.getElementById("score").innerText = score;
+    love.remove();
+  };
+
+  area.appendChild(love);
+
+  setTimeout(() => {
+    love.remove();
+  }, 1200);
+}
+
+function endGame() {
+  clearInterval(timer);
+  clearInterval(interval);
+
+  alert(
+    score >= 10
+      ? "💖 Kamu jago banget! Aku makin sayang 😚"
+      : "💗 Gapapa, yang penting aku tetep sayang kamu 🤍"
+  );
+}
+</script>
+
+</body>
+</html>

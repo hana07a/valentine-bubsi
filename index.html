@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Bubsi 💖</title>
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ff5d8f">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <img src="assets/cupid.png" class="cupid" alt="Cupid">
+    <h1>Hai Bubsi 💘</h1>
+    <p class="subtitle">Aku bikin ini khusus buat kamu</p>
+
+    <a href="menu.html" class="btn-love">Masuk 💗</a>
+  </div>
+
+  <div class="hearts"></div>
+  <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+      .then(() => console.log("Service Worker registered"))
+      .catch(err => console.log("SW failed", err));
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Album Bubsi 📸</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Album Kita 💖</h1>
+    <p class="subtitle">Semua momen manis di sini</p>
+
+    <div class="album-grid">
+      <img src="assets/foto1.jpeg" onclick="openImg(this.src)">
+      <img src="assets/foto2.jpeg" onclick="openImg(this.src)">
+      <img src="assets/foto3.jpeg" onclick="openImg(this.src)">
+      <img src="assets/foto4.jpeg" onclick="openImg(this.src)">
+    </div>
+
+    <br>
+    <a href="menu.html" class="btn-love">⬅ Balik</a>
+  </div>
+
+  <div class="modal" id="modal" onclick="closeModal()">
+    <img class="modal-img" id="modalImg">
+  </div>
+
+  <script>
+    function openImg(src) {
+      document.getElementById("modal").style.display = "flex";
+      document.getElementById("modalImg").src = src;
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
